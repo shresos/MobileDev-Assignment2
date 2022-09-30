@@ -96,7 +96,7 @@ module.exports = class ShwarmaOrder extends Order {
         break;
 
       case OrderState.REORDER:
-        if (sInput == 'Yes') {
+        if (sInput.toLowerCase() == 'yes') {
           if (this.item2 == null) {
             this.stateCur = OrderState.ITEM;
             aReturn.push('List of Item to Order');
@@ -105,7 +105,7 @@ module.exports = class ShwarmaOrder extends Order {
             this.stateCur = OrderState.ICECREAM;
             aReturn.push('What flavor icecream you would like to have?');
           }
-        } else if (sInput == 'No') {
+        } else if (sInput.toLowerCase() != 'no') {
           aReturn.push('What flavor icecream you would like to have?');
           this.stateCur = OrderState.ICECREAM;
         }
