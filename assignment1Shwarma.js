@@ -20,14 +20,10 @@ module.exports = class ShwarmaOrder extends Order {
     this.item2topping = null;
     this.item3Size = null;
     this.sIcecream = null;
-    // this.sItem = 'shawarama';
+
     this.sitem1 = null;
     this.sitem2 = null;
     this.sitem3 = null;
-
-    // this.Item1Price = 20;
-    // this.Item2Price = 30;
-    // this.Item3Price = 40;
 
     this.SmallPrice = 5;
     this.MediumPrice = 10;
@@ -44,7 +40,7 @@ module.exports = class ShwarmaOrder extends Order {
         this.stateCur = OrderState.ITEM;
         aReturn.push('Welcome to Oshan Fast Food Service.');
         aReturn.push('List of Item to Order');
-        aReturn.push('1. Noddles\n 2. Kababs\n Type 1/2');
+        aReturn.push('1. Noddles\n 2. Kababs\n (Type 1/2)');
         break;
 
       case OrderState.ITEM:
@@ -61,7 +57,7 @@ module.exports = class ShwarmaOrder extends Order {
           this.sitem2 = this.itemname;
         }
         aReturn.push('What size would you like?');
-        aReturn.push('1. Small \n 2. Medium\n 3. Large');
+        aReturn.push('1. Small \n 2. Medium\n 3. Large\n (Type 1/2/3)');
         break;
 
       case OrderState.SIZE:
@@ -104,7 +100,7 @@ module.exports = class ShwarmaOrder extends Order {
           if (this.item2 == null) {
             this.stateCur = OrderState.ITEM;
             aReturn.push('List of Item to Order');
-            aReturn.push('1. Noddles\n 2. Kababs');
+            aReturn.push('1. Noddles\n 2. Kababs\n (Type 1/2)');
           } else {
             this.stateCur = OrderState.ICECREAM;
             aReturn.push('What flavor icecream you would like to have?');
@@ -127,7 +123,7 @@ module.exports = class ShwarmaOrder extends Order {
           aReturn.push(`${this.item1Size} ${this.sitem1} with ${this.item1topping}`);
           aReturn.push(`${this.item2Size} ${this.sitem2} with ${this.item2topping}`);
         } else {
-          aReturn.push(`${this.item1Size} ${this.sitem1} with ${this.item1topping}}`);
+          aReturn.push(`${this.item1Size} ${this.sitem1} with ${this.item1topping}`);
         }
 
         if (this.sIcecream) {
